@@ -1,0 +1,41 @@
+﻿@model List<Technical.UI.Models.LocationDto>
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Show All Location</h1>
+    </div>
+</div>
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        City
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int index = 1; ;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@index</td>
+                        <td>@item.locationName</td>
+                    </tr>
+                    index++;
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Location Not Found</p>
+    }
+</div>
