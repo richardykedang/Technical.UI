@@ -4,7 +4,8 @@ namespace Technical.UI.Models
 {
     public class LocationDto
     {
-        [Required(ErrorMessage = "Location name is required.")]
+        public string LocationId { get; set; }
+        [Required]
         public string locationName { get; set; }
     }
 }

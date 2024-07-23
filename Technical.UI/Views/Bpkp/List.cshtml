@@ -1,0 +1,77 @@
+﻿@model List<Technical.UI.Models.BpkpDto>
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Show All Bpkps</h1>
+    </div>
+</div>
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Agreement Number
+                    </th>
+                    <th>
+                        Branch ID
+                    </th>
+                    <th>
+                        Bpkb Number
+                    </th>
+                    <th>
+                        Bpkb Date In
+                    </th>
+                    <th>
+                        Bpkb Date
+                    </th>
+                    <th>
+                        Faktur Number
+                    </th>
+                    <th>
+                        Faktur Date
+                    </th>
+                    <th>
+                        Police Number
+                    </th>
+                    <th>
+                        Location ID
+                    </th>
+                    <th>
+                        Location Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int index = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@index</td>
+                        <td>@item.AgreementNumber</td>
+                        <td>@item.BranchId</td>
+                        <td>@item.BpkbNo</td>
+                        <td>@item.BpkbDateIn.ToString("yyyy-MM-dd")</td>
+                        <td>@item.BpkbDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.FakturNo</td>
+                        <td>@item.FakturDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.PoliceNo</td>
+                        <td>@item.LocationId</td>
+                        <td>@item.LocationName</td>
+                    </tr>
+                    index++;
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Bpkp Not Found</p>
+    }
+</div>

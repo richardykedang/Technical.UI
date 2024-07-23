@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,10 +31,37 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" asp-controller="Location" asp-action="List">List Location</a></li>
                                 <li><a class="dropdown-item" asp-controller="Location" asp-action="Create">Add Location</a></li>
+                                <li><a class="dropdown-item" asp-controller="Bpkp" asp-action="List">List Bpkp</a></li>
+                                <li><a class="dropdown-item" asp-controller="Bpkp" asp-action="Create">Add Bpkp</a></li>
                                 
                             </ul>
                         </li>
                     </ul>
+                    @{
+                        var userName = User.Identity.Name; // Debug: Cek nilai
+                    }
+                    <div class="d-flex align-items-center">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="me-3 text-light">
+                                <a class="nav-link" href="#">Hello, @User.Identity.Name</a>
+                            </div>
+                            <a class="btn me-3 bg-light text-dark"
+                               asp-controller="Account"
+                               asp-action="Logout">
+                                Logout
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="btn me-3 bg-light text-dark"
+                               asp-controller="Account"
+                               asp-action="Login">
+                                Login
+                            </a>
+                        }
+
+                    </div>
                 </div>
             </div>
         </nav>

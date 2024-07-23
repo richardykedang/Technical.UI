@@ -3,6 +3,9 @@
     public class SD
     {
         public static string LocationAPIBase { get; set; }
+        public static string BpkpAPIBase { get; set; }
+        public static string AuthAPIBase { get; set; }
+
         public const string TokenCookie = "JWTToken";
         public enum ApiType
         {

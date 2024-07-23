@@ -12,12 +12,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<ILocationService, LocationService>();
+builder.Services.AddHttpClient<IAuthService, AuthService>();
 SD.LocationAPIBase = builder.Configuration["ServiceUrls:LocationAPI"];
+SD.BpkpAPIBase = builder.Configuration["ServiceUrls:BpkpAPI"];
+SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
 // register service and base service
 builder.Services.AddScoped<IBaseService, BaseService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<IBpkpService, BpkpService>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
