@@ -22,12 +22,12 @@ namespace Technical.UI.Services
             });
         }
 
-        public async Task<ResponseDto?> GetAllBpkp()
+        public async Task<ResponseDto?> GetAllBpkp(bool isLoggedInUser = false)
         {
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.GET,
-                Url = SD.BpkpAPIBase + "/api/bpkp"
+                Url = $"{SD.BpkpAPIBase}/api/bpkp?isLoggedInUser={isLoggedInUser}"
             });
         }
     }

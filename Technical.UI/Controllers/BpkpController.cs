@@ -20,8 +20,13 @@ namespace Technical.UI.Controllers
         }
         public async Task<IActionResult> List()
         {
+            bool isLoggedInUser = User.IsInRole("Employee"); // Menentukan jika pengguna adalah Employee
+
             List<BpkpDto>? data = new();
-            ResponseDto? response = await _bpkpService.GetAllBpkp();
+
+            // Kirim parameter isLoggedInUser ke metode service
+            ResponseDto? response = await _bpkpService.GetAllBpkp(isLoggedInUser);
+
             if (response != null && response.IsSuccess)
             {
                 data = JsonConvert.DeserializeObject<List<BpkpDto>>(Convert.ToString(response.Result));
@@ -33,7 +38,7 @@ namespace Technical.UI.Controllers
 
             return View(data);
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Create()
         {
