@@ -5,13 +5,20 @@
         <h1>Add Location</h1>
     </div>
 </div>
+
 <div class="container py-5">
     <form method="post">
         <div class="mb-3">
-            <label class="form-label">Name</label>
+            <!-- Hidden input for LocationId -->
+            <input type="hidden" asp-for="LocationId" />
+
+            <!-- Input for Location Name -->
+            <label class="form-label" for="name">Name</label>
             <input type="text" class="form-control" id="name" asp-for="locationName" />
             <span class="text-danger" asp-validation-for="locationName"></span>
         </div>
+
+        <!-- Submit Button -->
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">Submit</button>
         </div>
@@ -20,5 +27,4 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-
 }

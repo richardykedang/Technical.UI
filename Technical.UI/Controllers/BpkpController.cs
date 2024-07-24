@@ -33,29 +33,7 @@ namespace Technical.UI.Controllers
 
             return View(data);
         }
-        //[HttpGet]
-        //public async Task<IActionResult> Create()
-        //{
-        //    var response = await _locationService.GetAllLocation();
-        //    var model = new BpkpCreateDto();
-
-        //    if (response?.IsSuccess == true)
-        //    {
-        //        var locations = JsonConvert.DeserializeObject<List<LocationDto>>(Convert.ToString(response.Result));
-        //        model.Locations = locations.Select(x => new SelectListItem
-        //        {
-        //            Text = x.locationName,
-        //            Value = x.LocationId
-        //        }).ToList();
-        //    }
-        //    else
-        //    {
-        //        model.Locations = new List<SelectListItem>(); // Kosongkan dropdown jika gagal
-        //        ViewBag.ErrorMessage = response?.Message ?? "Failed to load locations.";
-        //    }
-
-        //    return View(model);
-        //}
+        
         [HttpGet]
         public async Task<IActionResult> Create()
         {

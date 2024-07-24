@@ -11,39 +11,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>
-                        #
-                    </th>
-                    <th>
-                        Agreement Number
-                    </th>
-                    <th>
-                        Branch ID
-                    </th>
-                    <th>
-                        Bpkb Number
-                    </th>
-                    <th>
-                        Bpkb Date In
-                    </th>
-                    <th>
-                        Bpkb Date
-                    </th>
-                    <th>
-                        Faktur Number
-                    </th>
-                    <th>
-                        Faktur Date
-                    </th>
-                    <th>
-                        Police Number
-                    </th>
-                    <th>
-                        Location ID
-                    </th>
-                    <th>
-                        Location Name
-                    </th>
+                    <th>#</th>
+                    <th>Agreement Number</th>
+                    <th>Bpkb Number</th>
+                    <th>Bpkb Date</th>
+                    <th>Location Name</th>
+                    <th>Created By</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,15 +28,10 @@
                     <tr>
                         <td>@index</td>
                         <td>@item.AgreementNumber</td>
-                        <td>@item.BranchId</td>
                         <td>@item.BpkbNo</td>
-                        <td>@item.BpkbDateIn.ToString("yyyy-MM-dd")</td>
                         <td>@item.BpkbDate.ToString("yyyy-MM-dd")</td>
-                        <td>@item.FakturNo</td>
-                        <td>@item.FakturDate.ToString("yyyy-MM-dd")</td>
-                        <td>@item.PoliceNo</td>
-                        <td>@item.LocationId</td>
                         <td>@item.LocationName</td>
+                        <td>@item.CreatedBy</td>
                     </tr>
                     index++;
                 }

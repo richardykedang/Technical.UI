@@ -12,5 +12,6 @@
         public string PoliceNo { get; set; }
         public string LocationId { get; set; }
         public string LocationName { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

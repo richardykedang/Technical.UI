@@ -4,7 +4,7 @@ namespace Technical.UI.Models
 {
     public class LocationDto
     {
-        public string LocationId { get; set; }
+        public string? LocationId { get; set; }
         [Required]
         public string locationName { get; set; }
     }

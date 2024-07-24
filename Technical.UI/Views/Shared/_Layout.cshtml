@@ -1,4 +1,5 @@
-﻿
+﻿@using Technical.UI.Utility;
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +25,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        @if (User.IsInRole(SD.RoleAdmin) || User.IsInRole(SD.RoleEmployee))
+                        { 
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Tes
+                                Menu
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" asp-controller="Location" asp-action="List">List Location</a></li>
@@ -36,6 +40,7 @@
                                 
                             </ul>
                         </li>
+                        }
                     </ul>
                     @{
                         var userName = User.Identity.Name; // Debug: Cek nilai
@@ -44,7 +49,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="me-3 text-light">
-                                <a class="nav-link" href="#">Hello, @User.Identity.Name</a>
+                                <a class="nav-link" href="#">Hello, @userName</a>
                             </div>
                             <a class="btn me-3 bg-light text-dark"
                                asp-controller="Account"
